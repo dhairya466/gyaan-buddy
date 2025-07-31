@@ -64,7 +64,7 @@ Recommended quick deploy:
 ## 📬 Contact
 
 Built by students at CVM University.  
-Email: hello@gyaanbuddy.app  
+Email: ptldhairya007@gmail.com  
 Instagram / Social: @gyaanbuddy  
 
 ## 📝 License
