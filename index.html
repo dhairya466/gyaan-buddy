@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Gyaan Buddy</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <!-- Tailwind quick CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --violet:#7c3aed;
+    }
+    body {
+      background: radial-gradient(circle at 25% 30%, rgba(124,58,237,0.08), transparent 50%), 
+                  linear-gradient(135deg, #f0f7fe 0%, #e8f1ff 100%);
+      font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    }
+    .blob {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: linear-gradient(135deg, #7c3aed, #6366f1);
+      filter: blur(140px);
+      border-radius: 50%;
+      opacity: 0.35;
+      animation: float 14s ease-in-out infinite;
+      mix-blend-mode: multiply;
+      z-index:0;
+    }
+    .blob2 {
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      background: linear-gradient(135deg, #22c1c3, #fdbb2d);
+      filter: blur(140px);
+      border-radius: 50%;
+      opacity: 0.32;
+      animation: float2 16s ease-in-out infinite;
+      mix-blend-mode: multiply;
+      z-index:0;
+    }
+    @keyframes float {
+      0% { transform: translate(0,0) scale(1); }
+      33% { transform: translate(25px,-15px) scale(1.05); }
+      66% { transform: translate(-20px,10px) scale(0.97); }
+      100% { transform: translate(0,0) scale(1); }
+    }
+    @keyframes float2 {
+      0% { transform: translate(0,0) scale(1); }
+      33% { transform: translate(-25px,20px) scale(1.03); }
+      66% { transform: translate(15px,-10px) scale(0.98); }
+      100% { transform: translate(0,0) scale(1); }
+    }
+    @keyframes pulse {
+      0% { opacity: 0.2; }
+      50% { opacity: 1; }
+      100% { opacity: 0.2; }
+    }
+    .card-bg {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(14px);
+    }
+  </style>
+</head>
+<body class="antialiased text-gray-800">
+  <div class="relative overflow-hidden">
+    <!-- decorative blobs -->
+    <div class="blob top-[-120px] left-[-100px]"></div>
+    <div class="blob2 bottom-[-140px] right-[-80px]"></div>
+
+    <div class="min-h-screen py-12 px-4 max-w-7xl mx-auto relative">
+      <!-- Hero + Waitlist -->
+      <div class="grid gap-10 lg:grid-cols-2 items-center relative">
+        <div class="space-y-6 z-10">
+          <h1 class="text-4xl sm:text-5xl font-extrabold leading-snug">
+            Gyaan Buddy: Your Complete College Companion
+          </h1>
+          <p class="text-lg text-gray-700">
+            Study smarter, teach others, track deadlines & attendance, and earn while you learn—built by students, for students.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <button class="rounded-xl px-6 py-3 bg-indigo-600 text-white font-medium shadow-lg hover:shadow-xl transition">
+              Get Early Access
+            </button>
+            <button class="rounded-xl px-6 py-3 border border-gray-700 font-medium shadow-inner hover:bg-gray-100 transition">
+              Learn More
+            </button>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="text-xs inline-block px-2 py-1 rounded-full bg-gray-200 font-semibold">#gyaanbuddy</span>
+            <span class="text-xs inline-block px-2 py-1 rounded-full bg-gray-200 font-semibold">#studentstartup</span>
+            <span class="text-xs inline-block px-2 py-1 rounded-full bg-gray-200 font-semibold">#edtech</span>
+            <span class="text-xs inline-block px-2 py-1 rounded-full bg-gray-200 font-semibold">#cvmuniversity</span>
+            <span class="text-xs inline-block px-2 py-1 rounded-full bg-gray-200 font-semibold">#learnwithease</span>
+          </div>
+        </div>
+        <div class="relative z-10">
+          <div class="absolute inset-0 bg-gradient-to-tr from-purple-300 to-indigo-300 rounded-2xl blur-xl opacity-40"></div>
+          <div class="relative card-bg rounded-2xl shadow-2xl p-6">
+            <h2 class="text-2xl font-semibold mb-2">Join the Waitlist</h2>
+            <p class="text-sm text-gray-600 mb-4">
+              Be the first to get access when we launch at your college.
+            </p>
+
+            <!-- Formspree form -->
+            <form
+              action="https://formspree.io/f/myzppbrv"
+              method="POST"
+              class="flex gap-2 flex-col sm:flex-row"
+              id="waitlist-form"
+            >
+              <input
+                type="email"
+                name="email"
+                placeholder="Your email"
+                required
+                aria-label="email"
+                class="flex-1 rounded-lg border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              />
+              <button
+                type="submit"
+                class="rounded-xl px-6 py-3 bg-indigo-600 text-white font-medium whitespace-nowrap"
+              >
+                Notify Me
+              </button>
+            </form>
+            <p class="text-xs text-gray-500 mt-2">
+              You’ll get a confirmation and I’ll receive your email too.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features -->
+      <div class="mt-20 relative z-10">
+        <h3 class="text-center text-3xl font-bold mb-8">Features Built for Students & Teachers</h3>
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+          <!-- AI Help Box -->
+          <div class="bg-white rounded-2xl p-6 shadow-lg flex gap-3 items-start">
+            <div class="flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m16.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414M16.95 16.95l1.414 1.414M7.05 7.05L5.636 5.636"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-1">AI Help Box</h4>
+              <p class="text-sm">Ask doubts, get summaries, and auto suggestions instantly.</p>
+            </div>
+          </div>
+
+          <!-- Peer Teaching -->
+          <div class="bg-white rounded-2xl p-6 shadow-lg flex gap-3 items-start">
+            <div class="flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87M12 12a4 4 0 100-8 4 4 0 000 8z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 010 8"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-1">Peer Teaching</h4>
+              <p class="text-sm">Earn by tutoring juniors; verified profiles and ratings.</p>
+            </div>
+          </div>
+
+          <!-- Deadlines & Attendance -->
+          <div class="bg-white rounded-2xl p-6 shadow-lg flex gap-3 items-start">
+            <div class="flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3M3 11h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 14l2 2 4-4"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-1">Deadlines & Attendance</h4>
+              <p class="text-sm">Auto reminders, gamified tracking, and shared project timelines.</p>
+            </div>
+          </div>
+
+          <!-- Skill Boosters -->
+          <div class="bg-white rounded-2xl p-6 shadow-lg flex gap-3 items-start">
+            <div class="flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 11l3-3 3 3v6a3 3 0 11-6 0v-6z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2v4m0 12v4m4-16l-4 4-4-4"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-1">Skill Boosters</h4>
+              <p class="text-sm">Mini-courses to sharpen skills with certificates.</p>
+            </div>
+          </div>
+
+          <!-- Live AI Assistant -->
+          <div class="bg-white rounded-2xl p-6 shadow-lg flex gap-3 items-start">
+            <div class="flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-indigo-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16h6M4 6h16v10H4z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-1">Live AI Assistant</h4>
+              <p class="text-sm">Summarize long PPTs & answer BBA commerce questions instantly.</p>
+            </div>
+          </div>
+
+          <!-- Buddy Talks -->
+          <div class="bg-white rounded-2xl p-6 shadow-lg flex gap-3 items-start">
+            <div class="flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2m-4 0H7l-4 4V10a2 2 0 012-2h4"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 3h4a2 2 0 012 2v6a2 2 0 01-2 2h-4M11 7h.01M7 7h.01"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-1">Buddy Talks</h4>
+              <p class="text-sm">Student-to-student live discussions—connect, collaborate, and resolve doubts in real time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboards -->
+      <div class="mt-24 relative z-10">
+        <h3 class="text-center text-3xl font-bold mb-6">Student & Teacher Dashboards</h3>
+        <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">
+          Manage attendance, deadlines, peer teaching, Buddy Talks, and access the AI study chat—all from one place.
+        </p>
+        <div class="grid sm:grid-cols-2 gap-10 px-4">
+          <div class="bg-white shadow-xl rounded-2xl p-6">
+            <h4 class="font-bold text-xl mb-2">Student Dashboard</h4>
+            <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+              <li>Track attendance & deadlines</li>
+              <li>AI chat for summaries & questions</li>
+              <li>Buddy Talks to collaborate live</li>
+              <li>Enroll & earn via peer teaching</li>
+            </ul>
+          </div>
+          <div class="bg-white shadow-xl rounded-2xl p-6">
+            <h4 class="font-bold text-xl mb-2">Teacher Dashboard</h4>
+            <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+              <li>Push official deadlines</li>
+              <li>Monitor attendance & submissions</li>
+              <li>Approve/track Buddy Talks groups</li>
+              <li>Verify and rate tutors</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Chat Mockup -->
+      <div class="mt-24 px-4 relative z-10">
+        <h3 class="text-center text-3xl font-bold mb-6">AI Study Chat</h3>
+        <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">
+          Upload PPTs, get 3-page summaries, and ask commerce questions.
+        </p>
+        <div class="max-w-xl mx-auto bg-white shadow-xl rounded-2xl overflow-hidden">
+          <div class="p-6 space-y-4">
+            <div class="bg-gray-100 p-3 rounded-xl text-sm">
+              <strong>Student:</strong> Summarize my 120-page Marketing PPT.
+            </div>
+            <div class="bg-purple-100 p-3 rounded-xl text-sm">
+              <strong>AI Buddy:</strong> Here's your 3-page summary highlighting key concepts and case studies.
+            </div>
+            <div class="bg-gray-100 p-3 rounded-xl text-sm">
+              <strong>Student:</strong> Explain Porter’s 5 Forces in simple words.
+            </div>
+            <div class="bg-purple-100 p-3 rounded-xl text-sm flex items-center gap-2">
+              <strong>AI Buddy:</strong>
+              <div class="flex gap-1">
+                <span style="display:inline-block; width:6px; height:6px; background:#7c3aed; border-radius:50%; animation:pulse 1s infinite;"></span>
+                <span style="display:inline-block; width:6px; height:6px; background:#7c3aed; border-radius:50%; animation:pulse 1s infinite 0.2s;"></span>
+                <span style="display:inline-block; width:6px; height:6px; background:#7c3aed; border-radius:50%; animation:pulse 1s infinite 0.4s;"></span>
+              </div>
+            </div>
+            <div class="bg-purple-100 p-3 rounded-xl text-sm">
+              Porter’s 5 Forces analyze industry competition using 5 factors: Threat of new entrants, Supplier power, Buyer power, Threat of substitutes, and Industry rivalry.
+            </div>
+            <div class="flex mt-4 gap-2">
+              <input placeholder="Ask your question..." class="flex-1 rounded-lg border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+              <button class="rounded-xl px-4 py-2 bg-indigo-600 text-white flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+                Send
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="mt-32 border-t pt-10 text-center relative z-10">
+        <div class="flex flex-col sm:flex-row justify-between items-center max-w-4xl mx-auto gap-6">
+          <div class="space-y-2">
+            <h4 class="font-bold text-xl">Gyaan Buddy</h4>
+            <p class="text-sm text-gray-600">Built by CVM University students for the student community.</p>
+          </div>
+          <div class="flex gap-4 items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m0 0l4-4m-4 4l4 4" />
+            </svg>
+            <span class="text-sm">hello@gyaanbuddy.app</span>
+          </div>
+        </div>
+        <p class="text-xs text-gray-500 mt-6">&copy; <span id="year"></span> Gyaan Buddy. All rights reserved.</p>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // Year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Waitlist form submission with feedback
+    const form = document.getElementById("waitlist-form");
+    if (form) {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const resp = await fetch(form.action, {
+          method: "POST",
+          body: data,
+          headers: { Accept: "application/json" }
+        });
+        if (resp.ok) {
+          alert("Thanks! You're on the waitlist.");
+          form.reset();
+        } else {
+          alert("Something went wrong. Please try again.");
+        }
+      });
+    }
+  </script>
+</body>
+</html>
